@@ -1,0 +1,174 @@
+{
+  "contractName": "SolnSquareVerifier",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.5+commit.47a71e8f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/gopis/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol\":\"SolnSquareVerifier\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/gopis/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol\":{\"keccak256\":\"0x6e08c4b72256266280778d1fbca55f97f28f23b7dacad2a8f9354478a0fd9e0e\",\"urls\":[\"bzzr://78ab771b1fce423c6652b092e56176e46309b36cfe5d5a74081b5b319e6488e2\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058202977f4d7e222382d78cfa9ccf0119acbeeee3325ba8c41f5b884dcc73dc933510029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058202977f4d7e222382d78cfa9ccf0119acbeeee3325ba8c41f5b884dcc73dc933510029",
+  "sourceMap": "168:61:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;168:61:3;;;;;;;",
+  "deployedSourceMap": "168:61:3:-;;;;;",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n// pragma solidity ^0.8.7;\n// TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>\n\ncontract SolnSquareVerifier {\n    bool private boolDummhy;\n\n}\n\n// TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class\n\n\n\n// TODO define a solutions struct that can hold an index & an address\n\n\n// TODO define an array of the above struct\n\n\n// TODO define a mapping to store unique solutions submitted\n\n\n\n// TODO Create an event to emit when a solution is added\n\n\n\n// TODO Create a function to add the solutions to the array and emit the event\n\n\n\n// TODO Create a function to mint new NFT only after the solution has been verified\n//  - make sure the solution is unique (has not been used before)\n//  - make sure you handle metadata as well as tokenSuplly\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "sourcePath": "C:/Users/gopis/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+  "ast": {
+    "absolutePath": "/C/Users/gopis/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+    "exportedSymbols": {
+      "SolnSquareVerifier": [
+        7079
+      ]
+    },
+    "id": 7080,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7076,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7079,
+        "linearizedBaseContracts": [
+          7079
+        ],
+        "name": "SolnSquareVerifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 7078,
+            "name": "boolDummhy",
+            "nodeType": "VariableDeclaration",
+            "scope": 7079,
+            "src": "202:23:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 7077,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "202:4:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 7080,
+        "src": "168:61:3"
+      }
+    ],
+    "src": "0:899:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/C/Users/gopis/udacity/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+      "exportedSymbols": {
+        "SolnSquareVerifier": [
+          7079
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".21",
+            "<",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 7076,
+        "name": "PragmaDirective",
+        "src": "0:32:3"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            7079
+          ],
+          "name": "SolnSquareVerifier",
+          "scope": 7080
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "boolDummhy",
+              "scope": 7079,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 7077,
+                "name": "ElementaryTypeName",
+                "src": "202:4:3"
+              }
+            ],
+            "id": 7078,
+            "name": "VariableDeclaration",
+            "src": "202:23:3"
+          }
+        ],
+        "id": 7079,
+        "name": "ContractDefinition",
+        "src": "168:61:3"
+      }
+    ],
+    "id": 7080,
+    "name": "SourceUnit",
+    "src": "0:899:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.5+commit.47a71e8f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-09-22T22:07:00.079Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
