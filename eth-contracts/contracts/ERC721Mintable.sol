@@ -513,6 +513,9 @@ contract ERC721Enumerable is ERC165, ERC721 {
 contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     
     // TODO: Create private vars for token _name, _symbol, and _baseTokenURI (string)
+    string private _name;
+    string private _symbol;
+    string private _baseTokenURI;
 
     // TODO: create private mapping of tokenId's to token uri's called '_tokenURIs'
     mapping(uint256 => string) private _tokenURIs;
@@ -528,11 +531,31 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 
     constructor (string memory name, string memory symbol, string memory baseTokenURI) public {
         // TODO: set instance var values
+        _name = name;
+        _symbol = symbol;
+        _baseTokenURI = baseTokenURI;
 
         _registerInterface(_INTERFACE_ID_ERC721_METADATA);
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
+    function getName() external
+                       view
+                       returns(string memory)
+    {
+        return _name;
+    }
+
+    function getSymbol() external  view returns(string memory )
+    {
+        return _symbol;
+    }
+
+    function getBaseTokenURI() external view returns(string memory)
+    {
+        return _baseTokenURI;
+    }
+
 
     function tokenURI(uint256 tokenId) external view returns (string memory) {
         require(_exists(tokenId));
@@ -547,6 +570,14 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         // see https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol for strConcat()
     // require the token exists before setting
 
+    function setTokenURI(uint256 tokenId) internal
+    {
+        require(_exists(tokenId));
+        string memory tokenIdStr = uint2str(tokenId);
+        string memory tokenUri = strConcat(_baseTokenURI, tokenIdStr);
+        _tokenURIs[tokenId] = tokenUri;
+    }
+
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
@@ -558,5 +589,18 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
+contract FutureToken is ERC721Metadata('Future Token', 'FTOK' , ' https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/') {
+    
+    function mint(address to, uint256 tokenId, string memory tokenURI) public
+                                                                onlyOwner
+                                                                returns(bool)
+    {
+        
+        // Question:  Why is tokenURI needs to be passed as parameter ??
+        _mint(to, tokenId);
+        setTokenURI(tokenId);
+        return true;
+    }
+}
 
 
