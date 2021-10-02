@@ -1,0 +1,42 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Verifier",
+  "sourceName": "contracts/SolnSquareVerifier.sol",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "b",
+          "type": "uint256[2][2]"
+        },
+        {
+          "name": "c",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "input",
+          "type": "uint256[2]"
+        }
+      ],
+      "name": "verifyTx",
+      "outputs": [
+        {
+          "name": "r",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

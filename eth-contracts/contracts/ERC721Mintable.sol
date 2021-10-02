@@ -7,6 +7,7 @@ import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 import 'openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol';
 import "./Oraclize.sol";
+import "hardhat/console.sol";
 
 contract Ownable {
     //  TODO's
@@ -82,8 +83,8 @@ contract Pausable is Ownable
         _;
     }
 
-    event Paused(address);  // address that triggered pause
-    event Unpaused(address); // address that triggered unpause
+    event Paused(address txnSender);  // address that triggered pause
+    event Unpaused(address txnSender); // address that triggered unpause
 
     function changePauseState(bool pauseState)   public
                                                   onlyOwner
@@ -173,6 +174,12 @@ contract ERC721 is
 
     bytes4 private constant _INTERFACE_ID_ERC721 = 0x80ac58cd;
 
+    /*
+    modifier requireTokenOwner()   {
+        require(msg.sender == )
+    }
+    */
+
     constructor () public {
         // register the supported interfaces to conform to ERC721 via ERC165
         _registerInterface(_INTERFACE_ID_ERC721);
@@ -219,7 +226,9 @@ contract ERC721 is
      * @param to operator address to set the approval
      * @param approved representing the status of the approval to be set
      */
-    function setApprovalForAll(address to, bool approved) public {
+    function setApprovalForAll(address to, bool approved) 
+                                                        public  {
+                                                        
         require(to != msg.sender);
         _operatorApprovals[msg.sender][to] = approved;
         emit ApprovalForAll(msg.sender, to, approved);
@@ -281,7 +290,8 @@ contract ERC721 is
   
         // TODO mint tokenId to given address & increase token count of owner
          _tokenOwner[tokenId] = to;
-         _ownedTokensCount[to].increment;
+         _ownedTokensCount[to].increment();
+         console.log("token count = %d",  _ownedTokensCount[to].current() );
 
         // TODO emit Transfer event
         emit Transfer(address(0), to, tokenId);
@@ -301,9 +311,9 @@ contract ERC721 is
         _tokenApprovals[tokenId] = address(0);
 
         // TODO: update token counts & transfer ownership of the token ID 
-         _ownedTokensCount[from].decrement;
+         _ownedTokensCount[from].decrement();
          _tokenOwner[tokenId] = to;
-         _ownedTokensCount[to].increment;
+         _ownedTokensCount[to].increment();
 
 
         // TODO: emit correct event
@@ -539,19 +549,19 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
-    function getName() external
+    function name() external
                        view
                        returns(string memory)
     {
         return _name;
     }
 
-    function getSymbol() external  view returns(string memory )
+    function symbol() external  view returns(string memory )
     {
         return _symbol;
     }
 
-    function getBaseTokenURI() external view returns(string memory)
+    function baseTokenURI() external view returns(string memory)
     {
         return _baseTokenURI;
     }
@@ -589,10 +599,18 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
-contract FutureToken is ERC721Metadata('Future Token', 'FTOK' , ' https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/') {
+// contract FutureToken721 is ERC721Metadata('Future Token', 'FTOK' , ' https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/') {
     
-    function mint(address to, uint256 tokenId, string memory tokenURI) public
-                                                                onlyOwner
+    contract FutureToken721 is ERC721Metadata {
+    
+    constructor(string memory tokenName, string memory tokenSymbol) 
+                ERC721Metadata(tokenName, tokenSymbol, 'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/')
+                public
+    {
+
+    }
+    function mint(address to, uint256 tokenId /*, string memory tokenURI */) public
+                                                                onlyOwner  // why ? does not make sense
                                                                 returns(bool)
     {
         
