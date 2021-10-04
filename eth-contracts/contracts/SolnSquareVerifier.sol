@@ -2,7 +2,8 @@ pragma solidity >=0.4.21 <0.6.0;
 // pragma solidity ^0.8.7;
 
 import "./ERC721Mintable.sol";
-// import "./verifier.sol";
+import "./verifier.sol";
+
 
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
 
@@ -84,27 +85,36 @@ contract SolnSquareVerifier is FutureToken721 {
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSuplly
 
-    function mintToken(uint256 tokenId, uint[2] memory  a, uint[2][2] memory  b, uint[2] memory  c, uint[2] memory  inputs)
+    function mintToken(address addr, uint256 tokenId, uint[2] memory  a, uint[2][2] memory  b, uint[2] memory  c, uint[2] memory  inputs)
                                                             public
                                                             requireUniqueSolution(a, b, c, inputs)
+                                                            returns (bool)
     {
         if (verifier.verifyTx(a, b, c, inputs)  == true) {
-            _mint(msg.sender, tokenId);
-            
             // add the solution
             bytes32 solnKey = getSolutionKey(a, b, c, inputs);
             addSolution(a, b, c, inputs, solnKey);
+            // return FutureToken721.mint(addr, tokenId,"URI");
+            return mint(addr, tokenId,"URI");
+        }
+        else {
+            return false;
         }
     }
 
 }
 
+
+/*
 contract Verifier {
     function verifyTx(uint[2] memory a,
             uint[2][2] memory b,
             uint[2] memory c, uint[2] memory input
         ) public view returns (bool r);
 }
+*/
+
+
 
 
 

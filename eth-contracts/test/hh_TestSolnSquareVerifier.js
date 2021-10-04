@@ -43,7 +43,7 @@ describe("SolnSquareVerifier contract", function () {
 
         if (!rtnVal) {
             const tokenId = 7575;
-            await solnSquareVerifier.mintToken(tokenId,proof.proof.a, proof.proof.b, proof.proof.c, proof.inputs);
+            await solnSquareVerifier.mint(accounts[2],tokenId,proof.proof.a, proof.proof.b, proof.proof.c, proof.inputs);
             assert.equal(await solnSquareVerifier.totalSupply(), 1 );
 
         }

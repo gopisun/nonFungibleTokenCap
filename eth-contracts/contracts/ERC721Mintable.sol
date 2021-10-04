@@ -609,7 +609,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     {
 
     }
-    function mint(address to, uint256 tokenId /*, string memory tokenURI */) public
+    function mint(address to, uint256 tokenId , string memory tokenURI) public
                                                                 onlyOwner  // why ? does not make sense
                                                                 returns(bool)
     {
