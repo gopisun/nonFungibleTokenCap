@@ -40,7 +40,7 @@ async function mintToken() {
         { gasLimit: '1000000' }
         )
         const minterAddress = "0xf062BE692c443C13746da4256D85D693e0Ed1735";
-        const proof = await JSON.parse(fs.readFileSync("../test/proof5.json")) ;
+        const proof = await JSON.parse(fs.readFileSync("../test/proof10.json")) ;
 
         console.log("Proof a: " + proof.proof.a);
 
@@ -49,7 +49,7 @@ async function mintToken() {
         console.log("Accounts: " + accountsArr);
 
         try {
-            const result = await factoryContract.methods.mintToken(minterAddress, 2006, proof.proof.a, proof.proof.b, proof.proof.c, proof.inputs).send({from:accountsArr[0]});
+            const result = await factoryContract.methods.mintToken(minterAddress, 2011, proof.proof.a, proof.proof.b, proof.proof.c, proof.inputs).send({from:accountsArr[0]});
             console.log("result: " + result)
         } catch(e)  {
             console.log("Exception: " + e)

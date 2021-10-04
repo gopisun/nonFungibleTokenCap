@@ -25,8 +25,12 @@ This will execute all the 3 test scripts in the tests directory.
     2. in truffle.config (in eth-contracts folder), supply our mnemonic and infura key.
     3. do truffle migrate --network --rinkeby --reset
 
+Deployed contract address:0x59D63d47E54E7589529040DCa65A078b93833fb3
+url : https://rinkeby.etherscan.io/token/0x59D63d47E54E7589529040DCa65A078b93833fb3
+
 ## Tokens minted and sold
 1. 5 tokens were minted with token ids: 2002, 2003, 2004, 2005 and 2006. 
+2. 5 more tokens were minted but were not put up for sale - 2007, 2008, 2009, 2010, 2011
  Minted by account:  0xf062BE692c443C13746da4256D85D693e0Ed1735
  Token name:  "GopiToken" 
  Symbol: "GTK"
