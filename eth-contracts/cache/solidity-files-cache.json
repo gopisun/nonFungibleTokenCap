@@ -226,8 +226,8 @@
       ]
     },
     "C:\\Users\\gopis\\udacity\\Blockchain-Capstone\\eth-contracts\\contracts\\SolnSquareVerifier.sol": {
-      "lastModificationDate": 1633206074392,
-      "contentHash": "be0fcba1fff851b3875b16eb98329986",
+      "lastModificationDate": 1633379556677,
+      "contentHash": "0f138d14b4c059d42a36e93d994151bb",
       "sourceName": "contracts/SolnSquareVerifier.sol",
       "solcConfig": {
         "version": "0.5.5",

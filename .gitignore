@@ -1,2 +1,6 @@
 .env
 mint.js_v1
+build/
+eth-contracts/build/
+eth-contracts/node_modules/
+node_modules/

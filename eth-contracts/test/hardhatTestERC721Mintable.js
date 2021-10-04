@@ -92,11 +92,11 @@ describe("ERC721 Mintable Contracts", function () {
     });
 
     it("FT721 - mint token", async function () {
-      await ft721.mint(tokenOwner, tokenId);
-      await ft721.mint(accounts[11], 1234);
-      await ft721.mint(accounts[12], 1235);
-      await ft721.mint(accounts[13], 1236);
-      await ft721.mint(accounts[14], 1237);
+      await ft721.mint(tokenOwner, tokenId, "URI");
+      await ft721.mint(accounts[11], 1234, "URI");
+      await ft721.mint(accounts[12], 1235, "URI");
+      await ft721.mint(accounts[13], 1236, "URI");
+      await ft721.mint(accounts[14], 1237, "URI");
       assert.equal(await ft721.ownerOf(tokenId), tokenOwner);
     });
 
@@ -128,7 +128,7 @@ describe("ERC721 Mintable Contracts", function () {
     });
 
     it("FT721 -get an Owners token count balance", async function () {
-      await ft721.mint(accounts[11], 2234, {from:accounts[4]});
+      await ft721.mint(accounts[11], 2234, "URI", {from:accounts[4]});
       let balance = await ft721.balanceOf(accounts[11])
       assert.equal(balance, 2);
     });
