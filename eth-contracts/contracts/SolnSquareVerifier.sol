@@ -2,7 +2,7 @@ pragma solidity >=0.4.21 <0.6.0;
 // pragma solidity ^0.8.7;
 
 import "./ERC721Mintable.sol";
-// import "./verifier.sol";
+// import "./verifier.sol";   // uncommnet when truffle is used for compiling and migration 
 
 
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
@@ -105,7 +105,7 @@ contract SolnSquareVerifier is FutureToken721 {
 }
 
 
-
+// comment the contract definition below when truffle is used for compiling and migration
 contract Verifier {
     function verifyTx(uint[2] memory a,
             uint[2][2] memory b,
