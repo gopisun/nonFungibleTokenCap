@@ -2,7 +2,7 @@
 const fs = require('fs');
 const { artifacts, assert } = require("hardhat");
 
-const Verifier = artifacts.require("contracts\\verifier.sol:Verifier");
+const Verifier = artifacts.require("contracts/verifier.sol:Verifier");
 const SolnSquareVerifier = artifacts.require("SolnSquareVerifier");
 
 // Test if a new solution can be added for contract - SolnSquareVerifier
