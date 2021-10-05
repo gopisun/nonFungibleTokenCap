@@ -10,8 +10,9 @@ Caveat:  The smartcontract SolnSquareVerifier.sol can be compiled "as is" while 
 
 To install, download or clone the repo, then:
 
-npm install 
-hardhat compile   (if hardhat is not installed, please follow the documention at https://hardhat.org/ for installation)
+1. cd eth-contracts (from the project root directory)
+2. npm install 
+3. npx hardhat compile   (if hardhat is not installed, please follow the documention at https://hardhat.org/ for installation)
 
 ## Testing
 For testing  
@@ -22,7 +23,7 @@ This will execute all the 3 test scripts in the tests directory.
 
 ## for deployment to rinkeby test network.  
     1. do th changes in SolnSquareVerifier.sol as described in "Install" section".
-    2. in truffle.config (in eth-contracts folder), supply our mnemonic and infura key.
+    2. in truffle.config (in eth-contracts folder), supply your mnemonic and infura key.
     3. do truffle migrate --network --rinkeby --reset
 
 Deployed contract address:0x59D63d47E54E7589529040DCa65A078b93833fb3
